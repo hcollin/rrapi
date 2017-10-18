@@ -1,7 +1,11 @@
 // Initializes the `avatar` service on path `/avatar`
 const createService = require('feathers-memory');
+const blobService = require('feathers-blob');
 const hooks = require('./avatar.hooks');
 const filters = require('./avatar.filters');
+
+const fs = require('fs-blob-store');
+const blobStorage = fs(__dirname + '/uploads');
 
 module.exports = function () {
   const app = this;
